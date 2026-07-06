@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>Daylog</title>
+        <style>
+            @import url('https://cdn.jsdelivr.net/gh/wan2land/d2coding/d2coding.css');
+            body{
+                margin: 0px;
+                height: 100vh;
+                background-color: #121214;
+                font-family: 'D2Coding', 'D2 coding', Monaco, monospace;
+                color: #e0e0e0;
+                font-size: 16px;
+                letter-spacing: -0.02em;
+                display: flex; justify-content: center; align-items: center;
+            }
+            p{
+                color: #e0e0e0;
+                margin: 0px;
+            }
+            .SignInBox{
+                width: 400px; height: 400px;
+                background-color: #1e1e22;
+                border: 1px solid #e0e0e0; border-radius: 20px;
+                display: flex; flex-direction: column;
+            }
+            .main{
+                font-size: 30px; font-weight: 600;
+                margin-top: 30px;
+                text-align: center;
+            }
+            .email{
+                margin-left: 73px; margin-top: 30px;
+            }
+            .textEmail{
+                margin: 5px auto;
+                width: 245px; height: 30px;
+                border: 1px solid #e0e0e0; border-radius: 5px;
+                background-color: #1e1e22;
+                color: #e0e0e0;
+                font-size: 15px;
+                padding-left: 7px;
+            }
+            .password{
+                margin-left: 73px; margin-top: 13px;                
+            }
+            .textPassword{
+                width: 245px; height: 30px;
+                border: 1px solid #e0e0e0; border-radius: 5px;
+                background-color: #1e1e22;
+                color: #e0e0e0;
+                font-size: 15px;
+                padding-left: 7px;
+            }
+            .toggleBtn{
+                width: 20px; height: auto;
+                position: absolute;
+                z-index: 5;
+                right: 10px;
+                top: 11px;
+            }
+            .passwordInput{
+                position: relative;
+                margin: 5px auto;
+            }
+            .signIn{
+                font-size: 20px; font-weight: 400;
+                text-align: center; margin: 20px auto;
+                background-color: #F472B6;
+                width: 257px; height: 35px;
+                border-radius: 5px;
+                display: flex; flex-direction: column; justify-content: center;
+            }
+            .notification{
+                margin-top: 15px;
+                text-align: center;
+                font-size: 14px;
+                padding: 0px;
+            }
+            .mark{
+                text-decoration: underline;
+                color:#F472B6;
+            }
+            a.other:link, a.other:visited{
+                color: #e0e0e0;
+                text-decoration: none;
+            }
+            .logo{
+                position: fixed; top: 20px; left: 20px;
+                font-size: 35px; font-weight: 600;
+
+            }
+            a.mark:link, a.mark:visited{
+                text-decoration: underline;
+                color:#F472B6;
+            }
+        </style>
+    </head>
+    <body>
+        <div class="SignInBox">
+            <div class="main">Sign in to Daylog</div>
+            <div class="email">Email</div>
+            <input class="textEmail" type="text">
+            <div class="password">Password</div>
+            <div class="passwordInput">
+                <img class="toggleBtn" src="../images/toggleBtn.png" onclick="toggleBtn()">
+                <input class="textPassword" type="password">
+            </div>
+            <div class="signIn">Sign in</div>
+            <div class="notification">Don't have an account? <span class="mark"><a class="mark" href="signUp.html">Sign up</a></span> <br>
+                Fotgot your <span class="mark">email</span> or <span class="mark">password</span>?</div>
+        </div>
+        <div class="logo"><a class="other" href="home.html">Day<span id="logo" style="color: #F472B6">log</span></div>
+        <script src="script.js"></script>
+    </body>
+</html>

@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>Daylog</title>
+        <style>
+            @import url('https://cdn.jsdelivr.net/gh/wan2land/d2coding/d2coding.css');
+            body{
+                margin: 0px;
+                background-color: #121214;
+                font-family: 'D2Coding', 'D2 coding', Monaco, monospace;
+                color: #e0e0e0;
+                font-size: 16px;
+                letter-spacing: -0.02em;
+            }
+            p{
+                color: #e0e0e0;
+                margin: 0px;
+            }
+            a:link, a:visited{
+                color: #e0e0e0;
+                text-decoration: none;
+            }
+            .sideBarMenu{
+                display: flex; flex-direction: column;
+                position: fixed;
+                background-color: #1e1e22;
+                width: 200px; height: 100%;
+            }
+            .logo{
+                margin-top: 20px; margin-left: 20px;
+                font-size: 35px; font-weight: 600;
+            }
+            .menuNav{
+                display: flex; flex-direction: column;
+                margin-left: 20px; margin-top: 16px;
+                row-gap: 5px;
+                font-size: 20px;
+            }
+        </style>
+    </head>
+    <body>
+        <div class="sideBarMenu">
+            <div class="logo"><a href="home.html">Day<span id="logo" style="color: #F472B6">log</span></div>
+            <div class="menuNav">
+                <a class="signInButton" href="signIn.html">Sign in/Sign up</p>
+                <a id="home" href="home.html">Home</a>
+                <a id="diary" href="diary.html">Diary</a>
+            </div>
+        </div>
+        <script src="script.js"></script>
+    </body>
+</html>

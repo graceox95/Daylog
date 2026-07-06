@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>diary</title>
+        <style>
+            @import url('https://cdn.jsdelivr.net/gh/wan2land/d2coding/d2coding.css');
+            body{
+                margin: 0px;
+                height: 100vh;
+                background-color: #121214;
+                font-family: 'D2Coding', 'D2 coding', Monaco, monospace;
+                color: #e0e0e0;
+                font-size: 16px;
+                letter-spacing: -0.02em;
+                display: flex; justify-content: center; align-items: center;
+            }
+            p{
+                color: #e0e0e0;
+                margin: 0px;
+            }
+            .SignUpBox{
+                width: 400px; height: 500px;
+                background-color: #1e1e22;
+                border: 0.5px solid #e0e0e0; border-radius: 20px;
+                display: flex; flex-direction: column;
+                align-items: flex-start;
+            }
+            .main{
+                font-size: 30px; font-weight: 600;
+                margin-top: 30px;
+                text-align: center;
+            }
+            .email{
+                margin-left: 73px; margin-top: 20px;
+            }
+            .textEmail{
+                margin: 5px 0 5px 73px;
+                width: 245px; height: 30px;
+                border: 1px solid #e0e0e0; border-radius: 5px;
+                background-color: #1e1e22;
+                color: #e0e0e0;
+                font-size: 15px;
+                padding-left: 7px;
+            }
+            .password{
+                margin-left: 73px; margin-top: 13px;                
+            }
+            .textPassword{
+                width: 245px; height: 30px;
+                border: 1px solid #e0e0e0; border-radius: 5px;
+                background-color: #1e1e22;
+                color: #e0e0e0;
+                font-size: 15px;
+                padding-left: 7px;
+            }
+            .toggleBtn{
+                width: 20px; height: auto;
+                position: absolute;
+                z-index: 5;
+                right: 10px;
+                top: 50%;
+                transform: translateY(-50%);
+            }
+            .passwordInput{
+                position: relative; 
+                margin: 5px 0 5px 73px;
+            }
+            .signUp{
+                font-size: 20px; font-weight: 400;
+                text-align: center; margin: 20px auto;
+                background-color: #F472B6;
+                width: 257px; height: 35px;
+                border-radius: 5px;
+                display: flex; flex-direction: column; justify-content: center;
+            }
+            .notification{
+                margin-top: 25px; margin-left: 73px;
+                text-align: left;
+                font-size: 13px;
+                padding: 0px;
+            }
+            .mark{
+                text-decoration: underline;
+                color:#F472B6;
+            }
+            a.other:link, a.other:visited{
+                color: #e0e0e0;
+                text-decoration: none;
+            }
+            .logo{
+                position: fixed; top: 20px; left: 20px;
+                font-size: 35px; font-weight: 600;
+
+            }
+            a.mark:link, a.mark:visited{
+                text-decoration: underline;
+                color:#F472B6;
+            }
+            .policySection{
+                margin-top: 10px; margin-left: 0px;
+                font-size: 12px;
+            }
+            .policyCheckbox{
+                display: flex; 
+                gap: 8px;
+                margin-bottom: 8px;
+            }
+            .policyCheckbox input[type="checkbox"]{
+                cursor: pointer;
+            }
+            .policyLinks{
+                font-size: 12px;
+                line-height: 1.6;
+            }
+            .policyLinks a{
+                color: #F472B6;
+                text-decoration: underline;
+            }
+        </style>
+    </head>
+    <body>
+        <div class="SignUpBox">
+            <div class="main">Memory Your Story with Daylog</div>
+            <div class="email">Email</div>
+            <input class="textEmail" type="text">
+            <div class="password">Password</div>
+            <div class="passwordInput">
+                <img class="toggleBtn" src="../images/toggleBtn.png" onclick="toggleBtn()">
+                <input class="textPassword" type="password">
+            </div>
+            <div class="notification">
+                <p>To use Daylog, you must agree to the Terms <br> and Privacy Policy.</p>
+                <div class="policySection">
+                    <div class="policyCheckbox">
+                        <input type="checkbox" id="agreeTerms">
+                        <label for="agreeTerms">[Required] I agree to the <a class="mark" href="terms.html">Terms of Service</a></label>
+                    </div>
+                    <div class="policyCheckbox">
+                        <input type="checkbox" id="agreePrivacy">
+                        <label for="agreePrivacy">[Required] I agree to the <a class="mark" href="privacy.html">Privacy Policy</a></label>
+                    </div>
+                    <div class="policyCheckbox">
+                        <input type="checkbox" id="agreeDataCollection">
+                        <label for="agreeDataCollection">[Required] I agree to collect and use <br> personal information</label>
+                    </div>
+                </div>
+            </div>
+            <div class="signUp" onclick="agreeAllPolicy()">Sign up</div>
+        <div class="logo"><a class="other" href="home.html">Day<span id="logo" style="color: #F472B6">log</span></div>
+        <script src="script.js"></script>
+    </body>
+</html>

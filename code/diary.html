@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>Daylog</title>
+        <style>
+            @import url('https://cdn.jsdelivr.net/gh/wan2land/d2coding/d2coding.css');
+            body{
+                margin: 0px;
+                background-color: #121214;
+                font-family: 'D2Coding', 'D2 coding', Monaco, monospace;
+                color: #e0e0e0;
+                font-size: 16px;
+                letter-spacing: -0.02em;
+            }
+            p{
+                color: #e0e0e0;
+                margin: 0px;
+            }
+            a:link, a:visited{
+                color: #e0e0e0;
+                text-decoration: none;
+            }
+            .sideBarMenu{
+                display: flex; flex-direction: column;
+                position: fixed;
+                background-color: #1e1e22;
+                width: 200px; height: 100%;
+            }
+            .content{
+                margin-left: 200px;
+                min-height: 100vh;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                padding: 20px;
+                box-sizing: border-box;
+            }
+            .logo{
+                margin-top: 20px; margin-left: 20px;
+                font-size: 35px; font-weight: 600;
+            }
+            .menuNav{
+                display: flex; flex-direction: column;
+                margin-left: 20px; margin-top: 16px;
+                row-gap: 5px;
+                font-size: 20px;
+            }
+            .note{
+                background-color: #1e1e22;
+                width: 1100px; max-width: 100%; height: 630px;
+                border: 1px solid #e0e0e0; border-radius: 20px;
+                margin: 0;
+                display: flex;
+                flex-direction: column;
+            }
+            .head{
+                font-family: 'D2Coding', 'D2 coding', Monaco, monospace;
+                background-color: transparent;
+                font-size: 30px; font-weight: 600;
+                border: transparent;
+                color: #F472B6;
+                margin-top: 10px; margin-left: 10px;
+                width: max-content !important;
+                outline: none;
+            }
+            .text{
+                font-family: 'D2Coding', 'D2 coding', Monaco, monospace;
+                background-color: transparent;
+                font-size: 16px;
+                border: transparent;
+                color: #e0e0e0;
+                width: 1083px;
+                outline: none;
+                margin-left: 10px; margin-top: 10px;
+            }
+        </style>
+    </head>
+    <body>
+        <div class="sideBarMenu">
+            <div class="logo"><a href="home.html">Day<span id="logo" style="color: #F472B6">log</span></div>
+            <div class="menuNav">
+                <a class="signInButton" href="signIn.html">Sign in/Sign up</p>
+                <a href="home.html">Home</a>
+                <a href="diary.html">Diary</a>
+            </div>
+        </div>
+        <div class="content">
+            <div class="note">
+                <input class="head" type="text" placeholder="Head">
+                <p class="text" contenteditable="true">text</p>
+            </div>
+        </div>
+        <script src="script.js"></script>
+    </body>
+</html>
