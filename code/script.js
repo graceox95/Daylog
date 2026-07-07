@@ -187,8 +187,3 @@ document.addEventListener("DOMContentLoaded", function(){
 
     checkSignUpButton()
 })
-
-
-function editText(){
-    
-}

@@ -1,0 +1,23 @@
+{
+  "name": "daylog",
+  "version": "1.0.0",
+  "description": "Tech Stcak(2026.07.06): HTML, CSS, JavaScript\r Description: Client use this webpage for memorizing this and that.",
+  "homepage": "https://github.com/graceox95/Daylog#readme",
+  "bugs": {
+    "url": "https://github.com/graceox95/Daylog/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/graceox95/Daylog.git"
+  },
+  "license": "ISC",
+  "author": "",
+  "type": "commonjs",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "dependencies": {
+    "express": "^5.2.1"
+  }
+}
