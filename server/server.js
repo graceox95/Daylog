@@ -9,6 +9,8 @@ const app = express();
 app.use("/images", express.static(path.join(__dirname, "../images")));
 app.use(express.static(path.join(__dirname, "../code")));
 
+app.use(express.json());
+app.use(express.urlencoded({ extended: true }));
 app.use("/", pagesRouter);
 app.use("/", authRouter);
 

@@ -146,7 +146,19 @@ function agreeAllPolicy(){
 
     if(policy1Checked && policy2Checked && policy3Checked
         && email.value.includes("@") && password.value.length > 0){
-        window.location.href = "home.html"
+        fetch("/signUp", {
+            method: "POST",
+            headers: { "Content-Type": "application/json"},
+            body: JSON.stringify({ email: email.value, password: password.value})
+        })
+        .then(res => res.json())
+        .then(data => {
+            if(data.success){
+                window.location.href = "/home"
+            } else {
+                alert(data.message || "Please agree to all policies")
+            }
+        })
     }
 }
 
@@ -178,6 +190,8 @@ document.addEventListener("DOMContentLoaded", function(){
     const policy1 = document.querySelector("#agreeTerms")
     const policy2 = document.querySelector("#agreePrivacy")
     const policy3 = document.querySelector("#agreeDataCollection")
+
+    if(!email || !password || !policy1 || !policy2 || !policy3) return
 
     email.addEventListener("input", checkSignUpButton)
     password.addEventListener("input", checkSignUpButton)

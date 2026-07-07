@@ -10,6 +10,11 @@ router.get("/signUp", function(req, res){
     res.sendFile(path.join(__dirname, "../../code/auth/signUp.html"));
 })
 
+router.post("/signUp", function(req, res){
+    console.log("받은 회원가입 데이터:", req.body);
+    res.json( { success: true });
+})
+
 router.get("/privacy", function(req, res){
     res.sendFile(path.join(__dirname, "../../code/auth/privacy"));
 })
