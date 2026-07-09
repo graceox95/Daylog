@@ -2,8 +2,8 @@ require("dotenv").config();
 
 const express = require("express");
 const path = require("path");
-const pagesRouter = require("./routes/pages");
-const authRouter = require("./routes/auth");
+const pagesRouter = require("./routes/pages.js");
+const authRouter = require("./routes/auth.js");
 const app = express();
 
 app.use("/images", express.static(path.join(__dirname, "../images")));

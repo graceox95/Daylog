@@ -37,6 +37,79 @@
                 row-gap: 5px;
                 font-size: 20px;
             }
+            .content{
+                margin-left: 200px;
+                min-height: 100vh;
+                box-sizing: border-box;
+                padding: 70px 80px;
+            }
+            .dateTag{
+                font-size: 14px;
+                color: #9a9aa2;
+                letter-spacing: 0.05em;
+                margin-left: 5px;
+            }
+            .heroTitle{
+                font-size: 44px; font-weight: 600;
+                line-height: 1.4;
+                margin: 14px 0 18px;
+            }
+            .heroTitle .accent{
+                color: #F472B6;
+            }
+            .heroSubtitle{
+                font-size: 16px;
+                color: #c4c4cc;
+                max-width: 520px;
+                line-height: 1.7;
+                margin-bottom: 30px;
+            }
+            .ctaButton{
+                display: inline-flex;
+                align-items: center;
+                justify-content: center;
+                background-color: #F472B6;
+                padding: 12px 30px;
+                border-radius: 8px;
+                font-size: 16px;
+                cursor: pointer;
+                transition: opacity 0.15s ease;
+            }
+            .ctaButton:hover{
+                opacity: 0.85;
+            }
+            .featureGrid{
+                display: flex;
+                gap: 24px;
+                margin-top: 74px;
+                flex-wrap: wrap;
+            }
+            .featureCard{
+                background-color: #1e1e22;
+                border: 1px solid #e0e0e0; border-radius: 20px;
+                width: 260px;
+                padding: 24px;
+                box-sizing: border-box;
+            }
+            .featureIndex{
+                display: flex;
+                align-items: center; justify-content: center;
+                width: 32px; height: 32px;
+                border-radius: 50%;
+                border: 1px solid #F472B6;
+                color: #F472B6;
+                font-size: 14px;
+                margin-bottom: 18px;
+            }
+            .featureTitle{
+                font-size: 20px; font-weight: 600;
+                margin-bottom: 8px;
+            }
+            .featureDesc{
+                font-size: 14px;
+                color: #c4c4cc;
+                line-height: 1.6;
+            }
         </style>
     </head>
     <body>
@@ -46,6 +119,30 @@
                 <a class="signInButton" href="/signIn">Sign in/Sign up</p>
                 <a id="home" href="/home">Home</a>
                 <a id="diary" href="/diary">Diary</a>
+            </div>
+        </div>
+        <div class="content">
+            <p class="dateTag" id="todayDate"></p>
+            <h1 class="heroTitle">오늘 하루는<br><span class="accent">어떻게</span> 지나갔나요?</h1>
+            <p class="heroSubtitle">기록, 노트, 일기 — 형식은 자유롭게. Daylog는 당신의 하루를 남기는 개인적인 공간입니다.</p>
+            <a class="ctaButton" href="/diary">오늘의 기록 시작하기</a>
+
+            <div class="featureGrid">
+                <div class="featureCard">
+                    <div class="featureIndex">01</div>
+                    <div class="featureTitle">기록</div>
+                    <p class="featureDesc">떠오르는 생각이나 순간을 짧게, 부담 없이 남겨보세요.</p>
+                </div>
+                <div class="featureCard">
+                    <div class="featureIndex">02</div>
+                    <div class="featureTitle">노트</div>
+                    <p class="featureDesc">정리가 필요한 내용을 자유로운 형식으로 적어두는 공간.</p>
+                </div>
+                <div class="featureCard">
+                    <div class="featureIndex">03</div>
+                    <div class="featureTitle">일기</div>
+                    <p class="featureDesc">하루를 천천히 되돌아보며 오늘의 이야기를 남겨보세요.</p>
+                </div>
             </div>
         </div>
         <script src="script.js"></script>

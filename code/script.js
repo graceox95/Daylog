@@ -183,6 +183,16 @@ function checkSignUpButton(){
     }
 }
 
+// 홈 화면 오늘 날짜 표시
+document.addEventListener("DOMContentLoaded", function(){
+    const todayDate = document.querySelector("#todayDate")
+    if(!todayDate) return
+
+    todayDate.textContent = new Date().toLocaleDateString("ko-KR", {
+        year: "numeric", month: "long", day: "numeric", weekday: "long"
+    })
+})
+
 // 이벤트 리스너 등록
 document.addEventListener("DOMContentLoaded", function(){
     const email = document.querySelector(".textEmail")
