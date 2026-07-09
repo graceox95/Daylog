@@ -1,5 +1,6 @@
 const express = require("express");
 const path = require("path");
+const bcrypt = require("bcryptjs");
 const pool = require("../db.js");
 const router = express.Router();
 
@@ -15,9 +16,10 @@ router.post("/signUp", async function(req, res){
     const { email, password } = req.body;
 
     try {
+        const passwordHash = await bcrypt.hash(password, 10);
         await pool.query(
             "INSERT INTO users (email, password_hash) VALUES (?, ?)",
-            [email, password]
+            [email, passwordHash]
         );
         res.json({ success: true });
     } catch (err) {
