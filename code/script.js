@@ -162,6 +162,25 @@ function agreeAllPolicy(){
     }
 }
 
+function handleSignIn(){
+    const email = document.querySelector(".textEmail")
+    const password = document.querySelector(".textPassword")
+
+    fetch("/signIn", {
+        method: "POST",
+        headers: { "Content-Type": "application/json"},
+        body: JSON.stringify({ email: email.value, password: password.value})
+    })
+    .then(res => res.json())
+    .then(data => {
+        if(data.success){
+            window.location.href = "/home"
+        } else {
+            alert(data.message || "로그인에 실패했습니다.")
+        }
+    })
+}
+
 // 버튼 활성화 상태 확인 및 업데이트
 function checkSignUpButton(){
     const policy1 = document.querySelector("#agreeTerms")

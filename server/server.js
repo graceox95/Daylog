@@ -2,6 +2,7 @@ require("dotenv").config();
 
 const express = require("express");
 const path = require("path");
+const session = require("express-session");
 const pagesRouter = require("./routes/pages.js");
 const authRouter = require("./routes/auth.js");
 const app = express();
@@ -11,6 +12,11 @@ app.use(express.static(path.join(__dirname, "../code")));
 
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
+app.use(session({
+    secret: process.env.SESSION_SECRET,
+    resave: false,
+    saveUninitialized: false,
+}));
 app.use("/", pagesRouter);
 app.use("/", authRouter);
 
