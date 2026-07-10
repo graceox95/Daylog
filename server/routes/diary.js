@@ -1,9 +1,11 @@
 const express = require("express");
+const { body } = require("express-validator");
 const pool = require("../db.js");
 const requireAuth = require("../middleware/requireAuth.js");
+const validate = require("../middleware/validate.js");
 const router = express.Router();
 
-router.get("/api/diary", requireAuth, async function(req, res){
+router.get("/api/diary", requireAuth, async function(req, res, next){
     try {
         const [rows] = await pool.query(
             "SELECT entry_no, title, content, created_at FROM diary_entries WHERE user_no = ? ORDER BY created_at DESC",
@@ -11,17 +13,16 @@ router.get("/api/diary", requireAuth, async function(req, res){
         );
         res.json({ success: true, entries: rows });
     } catch (err) {
-        console.error("일기 목록 조회 오류:", err);
-        res.status(500).json({ success: false, message: "서버 오류가 발생했습니다." });
+        next(err);
     }
 })
 
-router.post("/api/diary", requireAuth, async function(req, res){
+router.post("/api/diary", requireAuth, [
+    body("title").trim().notEmpty().withMessage("제목을 입력해주세요.")
+        .isLength({ max: 200 }).withMessage("제목은 200자 이하로 입력해주세요."),
+    body("content").trim().notEmpty().withMessage("내용을 입력해주세요."),
+], validate, async function(req, res, next){
     const { title, content } = req.body;
-
-    if (!title || !content) {
-        return res.status(400).json({ success: false, message: "제목과 내용을 모두 입력해주세요." });
-    }
 
     try {
         await pool.query(
@@ -30,8 +31,7 @@ router.post("/api/diary", requireAuth, async function(req, res){
         );
         res.json({ success: true });
     } catch (err) {
-        console.error("일기 저장 오류:", err);
-        res.status(500).json({ success: false, message: "서버 오류가 발생했습니다." });
+        next(err);
     }
 })
 

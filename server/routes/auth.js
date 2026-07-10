@@ -1,14 +1,19 @@
 const express = require("express");
 const path = require("path");
+const { body } = require("express-validator");
 const bcrypt = require("bcryptjs");
 const pool = require("../db.js");
+const validate = require("../middleware/validate.js");
 const router = express.Router();
 
 router.get("/signIn", function(req, res){
     res.sendFile(path.join(__dirname, "../../code/auth/signIn.html"));
 })
 
-router.post("/signIn", async function(req, res){
+router.post("/signIn", [
+    body("email").isEmail().withMessage("올바른 이메일 형식이 아닙니다."),
+    body("password").notEmpty().withMessage("비밀번호를 입력해주세요."),
+], validate, async function(req, res, next){
     const { email, password } = req.body;
 
     try {
@@ -30,8 +35,7 @@ router.post("/signIn", async function(req, res){
         req.session.user = { user_no: user.user_no, email: user.email };
         res.json({ success: true });
     } catch (err) {
-        console.error("로그인 DB 오류:", err);
-        res.status(500).json({ success: false, message: "서버 오류가 발생했습니다." });
+        next(err);
     }
 })
 
@@ -39,7 +43,10 @@ router.get("/signUp", function(req, res){
     res.sendFile(path.join(__dirname, "../../code/auth/signUp.html"));
 })
 
-router.post("/signUp", async function(req, res){
+router.post("/signUp", [
+    body("email").isEmail().withMessage("올바른 이메일 형식이 아닙니다."),
+    body("password").isLength({ min: 8 }).withMessage("비밀번호는 8자 이상이어야 합니다."),
+], validate, async function(req, res, next){
     const { email, password } = req.body;
 
     try {
@@ -53,8 +60,7 @@ router.post("/signUp", async function(req, res){
         if (err.code === "ER_DUP_ENTRY") {
             res.status(409).json({ success: false, message: "이미 가입된 이메일입니다." });
         } else {
-            console.error("회원가입 DB 오류:", err);
-            res.status(500).json({ success: false, message: "서버 오류가 발생했습니다." });
+            next(err);
         }
     }
 })

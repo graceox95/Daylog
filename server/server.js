@@ -22,6 +22,11 @@ app.use("/", pagesRouter);
 app.use("/", authRouter);
 app.use("/", diaryRouter);
 
+app.use(function(err, req, res, next){
+    console.error(err);
+    res.status(500).json({ success: false, message: "서버 오류가 발생했습니다." });
+})
+
 app.listen(process.env.PORT || 3000, function(){
     console.log(`Server is running on http://localhost:${process.env.PORT}`);
 })
