@@ -181,6 +181,63 @@ function handleSignIn(){
     })
 }
 
+function saveDiaryEntry(){
+    const head = document.querySelector(".head")
+    const text = document.querySelector(".text")
+
+    fetch("/api/diary", {
+        method: "POST",
+        headers: { "Content-Type": "application/json"},
+        body: JSON.stringify({ title: head.value, content: text.textContent })
+    })
+    .then(res => res.json())
+    .then(data => {
+        if(data.success){
+            head.value = ""
+            text.textContent = ""
+        } else {
+            alert(data.message || "저장에 실패했습니다.")
+        }
+    })
+}
+
+function loadDiaryEntries(){
+    const entryList = document.querySelector("#entryList")
+    if(!entryList) return
+
+    fetch("/api/diary")
+    .then(res => res.json())
+    .then(data => {
+        if(!data.success) return
+
+        entryList.innerHTML = ""
+        data.entries.forEach(function(entry){
+            const item = document.createElement("div")
+            item.className = "entryItem"
+
+            const title = document.createElement("div")
+            title.className = "entryTitle"
+            title.textContent = entry.title
+
+            const date = document.createElement("div")
+            date.className = "entryDate"
+            date.textContent = new Date(entry.created_at).toLocaleString("ko-KR")
+
+            const content = document.createElement("p")
+            content.textContent = entry.content
+
+            item.appendChild(title)
+            item.appendChild(date)
+            item.appendChild(content)
+            entryList.appendChild(item)
+        })
+    })
+}
+
+document.addEventListener("DOMContentLoaded", function(){
+    loadDiaryEntries()
+})
+
 // 버튼 활성화 상태 확인 및 업데이트
 function checkSignUpButton(){
     const policy1 = document.querySelector("#agreeTerms")

@@ -5,6 +5,7 @@ const path = require("path");
 const session = require("express-session");
 const pagesRouter = require("./routes/pages.js");
 const authRouter = require("./routes/auth.js");
+const diaryRouter = require("./routes/diary.js");
 const app = express();
 
 app.use("/images", express.static(path.join(__dirname, "../images")));
@@ -19,6 +20,7 @@ app.use(session({
 }));
 app.use("/", pagesRouter);
 app.use("/", authRouter);
+app.use("/", diaryRouter);
 
 app.listen(process.env.PORT || 3000, function(){
     console.log(`Server is running on http://localhost:${process.env.PORT}`);

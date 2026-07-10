@@ -15,6 +15,10 @@ router.get("/diary", requireAuth, function(req, res){
     res.sendFile(path.join(__dirname, "../../code/pages/diary.html"));
 })
 
+router.get("/Record", requireAuth, function(req, res){
+    res.sendFile(path.join(__dirname, "../../code/pages/record.html"));
+})
+
 module.exports = router;
 
 
